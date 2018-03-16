@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Message } from "semantic-ui-react";
+import { Container, Message } from "semantic-ui-react";
 import ForgotPasswordForm from "../forms/ForgotPasswordForm";
 import { resetPasswordRequest } from "../../actions/auth";
 
@@ -17,13 +17,13 @@ class ForgotPasswordPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         {this.state.success ? (
           <Message>Email has been sent.</Message>
         ) : (
           <ForgotPasswordForm submit={this.submit} />
         )}
-      </div>
+      </Container>
     );
   }
 }

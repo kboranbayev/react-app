@@ -25,7 +25,7 @@ if (localStorage.reactJWT) {
     email: payload.email,
     confirmed: payload.confirmed
  };
- setAuthorizationHeader(localStorage.reactJWT);
+  setAuthorizationHeader(localStorage.reactJWT);
   store.dispatch(userLoggedIn(user));
 }
 
@@ -35,5 +35,6 @@ ReactDOM.render(
       <Route component={App} />
     </Provider>
   </BrowserRouter>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
 registerServiceWorker();

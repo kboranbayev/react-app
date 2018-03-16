@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Message, Icon } from 'semantic-ui-react';
+import { Container, Message, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { confirm } from '../../actions/auth';
@@ -21,7 +21,7 @@ class ConfirmationPage extends React.Component {
   render() {
     const { loading, success } = this.state;
     return (
-      <div>
+      <Container>
         {loading && (
           <Message icon>
             <Icon name="circle notched" loading />
@@ -50,7 +50,7 @@ class ConfirmationPage extends React.Component {
              </Message.Content>
            </Message>
         )}
-      </div>
+      </Container>
     );
   }
 }

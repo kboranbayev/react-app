@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
 const UserRoute = ({ isAuthenticated, component: Component, ...rest }) => (
+  
   <Route
     {...rest}
     render={props =>
-      isAuthenticated ? <Component {...props} /> : <Redirect to="/" />}
+      isAuthenticated ? <Component {...props} pageName /> : <Redirect to="/" />}
   />
 );
 

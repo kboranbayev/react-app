@@ -1,15 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Container, Header, Label } from "semantic-ui-react";
 import ConfirmEmailMessage from "../messages/ConfirmEmailMessage";
 
 class DashboardPage extends React.Component {
+  componentDidMount() {
+  }
+
   render() {
     const { isConfirmed } = this.props;
     return (
-      <div>
+      <Container>
+        
+        <Label>
+          <Header>This is Dashboard </Header>
+        </Label>
         {!isConfirmed && <ConfirmEmailMessage />}
-      </div>
+      
+      </Container>
     );
   }
 }

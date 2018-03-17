@@ -13,6 +13,7 @@ import AccountInfoPage from "./components/pages/AccountInfoPage";
 import UserRoute from "./components/routes/UserRoute";
 import GuestRoute from "./components/routes/GuestRoute";
 import TopNavigation from "./components/navigation/TopNavigation";
+//import ChatRoom from "./components/chat/ChatRoomPage";
 
 const App = ({ location, isAuthenticated }) => (
   <div>

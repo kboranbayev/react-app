@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Container, Header, Label } from "semantic-ui-react";
 import ConfirmEmailMessage from "../messages/ConfirmEmailMessage";
+//import ChatRoom from "../chat/ChatRoomPage";
 
 class DashboardPage extends React.Component {
   componentDidMount() {

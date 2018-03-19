@@ -75,6 +75,92 @@ const App = ({ location, isAuthenticated }) => (
   </div>
 );
 
+//const App = ({ location, isAuthenticated }) => (
+  /*
+class App extends React.Component {
+  //const { location, isAuthenticated } = this.props;
+
+  componentDidMount() {
+
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/home');
+    const body = await response.json();
+
+    
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
+  render() {
+    console.log(this.props);
+    const { location } = this.props.location;
+    const isAuthenticated = false;
+
+    return (
+      <div>
+        <Route 
+          location={location}
+          path="/"
+          component={TopNavigation}
+        />
+        <Route 
+          location={location} 
+          path="/" 
+          exact 
+          component={HomePage} 
+          title="HomePage" 
+        />
+        <Route
+          location={location}
+          path="/confirmation/:token"
+          exact
+          component={ConfirmationPage}
+        />
+        <GuestRoute 
+          location={location} 
+          path="/login" 
+          exact 
+          component={LoginPage} 
+        />
+        <GuestRoute
+          location={location}
+          path="/signup"
+          exact
+          component={SignupPage}
+        />
+        <GuestRoute
+          location={location}
+          path="/forgot_password"
+          exact
+          component={ForgotPasswordPage}
+        />
+        <GuestRoute
+          location={location}
+          path="/reset_password/:token"
+          exact
+          component={ResetPasswordPage}
+        />
+        <UserRoute
+          location={location}
+          path="/account_info"
+          exact
+          component={AccountInfoPage}
+        />
+        <UserRoute
+          location={location}
+          path="/dashboard"
+          exact
+          component={DashboardPage}
+        />
+      </div>
+    );
+  }
+}
+*/
 App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired

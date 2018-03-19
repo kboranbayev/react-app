@@ -15,7 +15,7 @@ class DashboardPage extends React.Component {
       <Container>
         
         <Label>
-          <Header>This is Dashboard </Header>
+          <Header>This is Dashboard! </Header>
         </Label>
         {!isConfirmed && <ConfirmEmailMessage />}
       

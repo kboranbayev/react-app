@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Form, Input, Button } from "semantic-ui-react";
+
 export default class MessageInput extends Component {
 	
 	constructor(props) {
@@ -25,7 +27,6 @@ export default class MessageInput extends Component {
 	sendMessage(){
 
 		this.props.sendMessage(this.state.message)
-		this.blur()
 	}
 
 	componentWillUnmount() {
@@ -51,11 +52,11 @@ export default class MessageInput extends Component {
 	startCheckingTyping(){
 		this.typingInterval = setInterval(()=>{
 			
-				if((Date.now() - this.lastUpdateTime) > 300){
+				if((Date.now() - this.lastUpdateTime) > 100){
 					this.setState({isTyping:false})
 					this.stopCheckingTyping()
 				}
-			}, 300)
+			}, 100)
 	}
 
 	/*
@@ -67,40 +68,32 @@ export default class MessageInput extends Component {
 			this.props.sendTyping(false)
 		}
 	}
-	blur = ()=>{
-		this.refs.messageinput.blur()
-	}
+
+	onKeyUp = (e)=> { 
+		e.keyCode !== 13 && this.sendTyping() 
+	};
+
+	onChange = ({target:{value:v}}) => {
+		this.setState({message:v})
+	};
+
 	render() {
 		const { message } = this.state
 		return (
-			<div className="message-input">
-					<form  
-						onSubmit={this.handleSubmit}
-							className="message-form">
-						
-						<input 
-							id="message"
-							ref={"messageinput"}
-							type="text" 
-							className="form-control"
-							value = { message } 
-							
-							autoComplete={'off'}
-							placeholder="Type something to send"
-							onKeyUp={(e)=>{ e.keyCode !== 13 && this.sendTyping() }}
-							onChange = {
-								({target:{value:v}})=>{
-									this.setState({message:v})
-								}
-							}/>
-						<button 
-							disabled={ message.length < 1} 
-							type="submit" 
-							className="send">Send
-						</button>
-					</form>
-				</div>
-				
+			<Form onSubmit={this.handleSubmit} className="message-form">
+				<Input
+					id="message"
+					ref={"messageinput"}
+					type="text" 
+					className="form-control"
+					value = { message } 
+					autoComplete={'off'}
+					placeholder="Type something to send"
+					onKeyUp={this.onKeyUp}
+					onChange = {this.onChange}
+				/>
+				<Button className='send' disabled={ message.length < 1} secondary content='Send' />
+			</Form>
 		);
 	}
 }

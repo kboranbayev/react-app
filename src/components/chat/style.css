@@ -2,13 +2,7 @@ body{
   font-family: 'Nunito';
 }
 
-h2{
-  font-size: 18px;
-  padding: 10px 20px;
-  color: #575ed8;
-}
-
-#mario-chat{
+.chat-container {
   max-width: 600px;
   margin: 30px auto;
   border: 1px solid #ddd;
@@ -16,7 +10,7 @@ h2{
   border-radius: 2px;
 }
 
-#chat-window{
+.messages-container {
   height: 400px;
   overflow: auto;
   background: #f9f9f9;
@@ -56,14 +50,4 @@ input{
   border-bottom: 1px solid #eee;
   font-family: Nunito;
   font-size: 16px;
-}
-
-button{
-  background: #575ed8;
-  color: #fff;
-  font-size: 18px;
-  border: 0;
-  padding: 12px 0;
-  width: 100%;
-  border-radius: 0 0 2px 2px;
 }

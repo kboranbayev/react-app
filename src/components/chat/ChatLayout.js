@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ChatContainer from './content/ChatContainer'
-import { USER_CONNECTED, LOGOUT } from './Constants'
-import '../../styles/index.css'
+import { USER_CONNECTED } from './Constants'
+
+import '../../styles/index.css';
 
 var serverURI = process.env.SERVER || 'http://localhost:3231';
 var io = require('socket.io-client')
@@ -17,12 +18,10 @@ class ChatLayout extends React.Component {
 	  		user:props.user
 		};
 	  this.setUser = this.setUser.bind(this)
-	  this.logout = this.logout.bind(this)
 	  this.reconnectUserInfo = this.reconnectUserInfo.bind(this)
 	}
 
 	componentWillMount() {
-		console.log("serverURI = " + serverURI);
 		var socket = io(serverURI)
 		this.setState({ socket })
 		this.initSocket(socket)
@@ -62,30 +61,18 @@ class ChatLayout extends React.Component {
 		socket.emit(USER_CONNECTED, user)
 	}
 	
-	/*
-	*	Sets the user to null.
-	*/
-	logout(){
-		const { socket } = this.state
-		socket.emit(LOGOUT)
-		this.setState({user:null})
-	}
-	
 	render() {
 		const { socket, user } = this.state 
 	
 		return (
-			<div className="container">
-				
-				<ChatContainer socket={socket} user={user} logout={this.logout} /> 
-			</div>
+			<ChatContainer socket={socket} user={user} /> 
 		);
 	}
 }
 
 ChatLayout.propTypes = {
-	socket:PropTypes.object.isRequired,
-	user:PropTypes.object.isRequired
+	socket: PropTypes.object,
+	user: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {

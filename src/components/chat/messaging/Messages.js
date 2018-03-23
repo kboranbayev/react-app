@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Comment } from "semantic-ui-react";
+import '../style.css';
 
 export default class Messages extends Component {
 	
@@ -12,13 +14,10 @@ export default class Messages extends Component {
 	*	Scrolls down the view of the messages.
 	*/
 	scrollDown(){
-		const { container } = this.refs
-		container.scrollTop = container.scrollHeight
 	}
 	
 	componentDidUpdate(newProps){
 		this.scrollDown();
-
 	}
 
 	componentDidMount(){
@@ -28,35 +27,32 @@ export default class Messages extends Component {
 	render() {
 		const { messages, user, typingUsers } = this.props;
 		return (
-			<div ref={'container'} 
-					className="thread-container">
-					<div className="thread">
-					{
-						messages.map((mes, i)=>{
-							
-							return( 
-							<div key={mes.id} className={`message-container ${mes.sender === user.name && 'right'}`}>
-								<div className="time">{mes.time}</div>
-								<div className="data">
-									<div className="message">{mes.message}</div>
-									<div className="name">{mes.sender}</div>
-								</div>
-							</div>)
-						})
-						
-					}
-					{
-						typingUsers.map((name)=>{
-							return(
-								<div key={name} className="typing-user">
-								{`${name} is typing . . .`}
-								</div>
-								)
-						})
-					}
-
-					</div>
-			</div>
+			<Comment className='thread-container'>
+				<div className='thread'>
+				{
+					messages.map((mes, i) => {
+						return( 
+							<Comment key={mes.id} className={`message-container ${mes.sender === user.email && 'right'}`}>
+								<Comment.Metadata className='time'>{mes.time}</Comment.Metadata>
+								<Comment.Content className='data'>
+									<Comment.Text className='message' content={mes.message} />
+									<Comment.Author className='name' content={mes.sender} />
+								</Comment.Content>
+							</Comment>
+						)
+					})
+				}
+				{
+					typingUsers.map((name)=>{
+						return(
+							<div key={name} className="typing-user">
+							{`${name} is typing . . .`}
+							</div>
+							)
+					})
+				}
+				</div>
+			</Comment>
 		);
 	}
 }

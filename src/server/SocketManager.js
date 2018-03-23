@@ -26,8 +26,8 @@ let chats = [communityChat];
 module.exports = function(socket){
   
 
-  let sendMessageToChatFromUser;
-  let sendTypingFromUser;
+  function sendMessageToChatFromUser(){};
+  function sendTypingFromUser(){};
   
   //Verify Username 1
   socket.on(VERIFY_USER, function(newUser, callback){
@@ -98,7 +98,7 @@ function sendMessageToChat(sender){
   return (chatId, message) => {
     io.emit(`${MESSAGE_RECIEVED}-${chatId}`, createMessage({message, sender}))
   }
-} 
+}
 
 /*
 * Returns a function that will take a chat id and boolean isTyping variable

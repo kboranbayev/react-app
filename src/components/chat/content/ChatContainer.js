@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import { Container, Feed} from "semantic-ui-react";
 
-import SideBar from './SideBar'
+import '../style.css';
 
-import { User } from '../Classes'
 import Messages from '../messaging/Messages'
 import MessageInput from '../messaging/MessageInput'
-import ChatHeading from './ChatHeading'
 
 import { COMMUNITY_CHAT, MESSAGE_RECIEVED, MESSAGE_SENT, TYPING } from '../Constants'
 
@@ -115,21 +114,20 @@ export default class ChatContainer extends Component {
 	*/
 	updateTypingInChat(chatId){
 		return ({isTyping, user}) =>{
-					if(user !== this.props.user.email){
-
-						const { chats } = this.state
-						let newChats = chats.map((chat) => {
-							if(chat.id === chatId){
-								if(isTyping && !chat.typingUsers.includes(user))
-									chat.typingUsers.push(user)
-								else if(!isTyping && chat.typingUsers.includes(user))
-									chat.typingUsers = chat.typingUsers.filter(u => u !== user)
-							}
-							return chat;
-						})
-						this.setState({chats:newChats})
+			if(user !== this.props.user.email){
+				const { chats } = this.state
+				let newChats = chats.map((chat) => {
+					if(chat.id === chatId){
+						if(isTyping && !chat.typingUsers.includes(user))
+							chat.typingUsers.push(user)
+						else if(!isTyping && chat.typingUsers.includes(user))
+							chat.typingUsers = chat.typingUsers.filter(u => u !== user)
 					}
-				}
+					return chat;
+				})
+				this.setState({chats:newChats})
+			}
+		}
 	}
 
 	/*
@@ -166,29 +164,19 @@ export default class ChatContainer extends Component {
 	}
 
 	render() {
-		const { user, logout } = this.props 
-		const { activeChat, chats } = this.state
+		const { user } = this.props 
+		const { activeChat } = this.state
+		console.log(this.state);
 		return (
-			<div className="container">
-				<SideBar 
-					logout={logout}
-					chats={chats} 
-					user={user}
-					activeChat={activeChat}
-					setActiveChat={ (chat)=> this.setActiveChat(chat) }/>		
-
-				<div className="chat-room-container">
+			<Container className='chat-room-container'>
 					{
 						activeChat !== null ? (
-							<div className="chat-room">
-								<ChatHeading 
-									name={activeChat.name} 
-									online={true} />
+							<Feed className='chat-room'>
+								
 								<Messages 
 									messages={activeChat.messages} 
 									user={user} 
 									typingUsers={activeChat.typingUsers}/>
-								
 								<MessageInput 
 									sendMessage={
 										(message)=>{ 
@@ -201,15 +189,12 @@ export default class ChatContainer extends Component {
 										}
 									}
 									/>
-							</div>
+							</Feed>
 							)
 						: 
-							<div className="chat-room choose">
-								<h3>Choose a chat</h3>
-							</div>
+							<div />
 					}
-				</div>
-			</div>
+			</Container>
 		);
 	}
 }

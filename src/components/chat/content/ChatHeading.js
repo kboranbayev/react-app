@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import FAVideo from 'react-icons/lib/fa/video-camera'
 import FAUserPlus from 'react-icons/lib/fa/user-plus'
@@ -25,3 +26,4 @@ export default class ChatHeading extends Component {
 		);
 	}
 }
+*/

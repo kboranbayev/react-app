@@ -13,9 +13,6 @@ import rootReducer from './rootReducer';
 import { userLoggedIn } from './actions/auth';
 import setAuthorizationHeader from './utils/setAuthorizationHeader';
 
-//import express from 'express';
-//import socket from 'socket.io';
-
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))

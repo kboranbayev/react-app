@@ -17,8 +17,8 @@ class DashboardPage extends React.Component {
     return (
       <Container>
         {
-          (!isConfirmed && <ConfirmEmailMessage />)
-          ? <div />
+          (!isConfirmed)
+          ? <ConfirmEmailMessage />
           : <ChatLayout />
         }
       </Container>

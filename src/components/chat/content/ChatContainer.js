@@ -166,7 +166,6 @@ export default class ChatContainer extends Component {
 	render() {
 		const { user } = this.props 
 		const { activeChat } = this.state
-		console.log(this.state);
 		return (
 			<Container className='chat-room-container'>
 					{

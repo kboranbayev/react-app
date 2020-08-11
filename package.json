@@ -3,32 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
-    "bufferutil": "^3.0.3",
-    "compression": "^1.7.2",
-    "concurrently": "^3.5.1",
-    "create-react-native-app": "^1.0.0",
-    "express": "^4.16.3",
-    "gravatar-url": "^2.0.0",
+    "axios": "^0.19.2",
+    "bufferutil": "^4.0.1",
+    "compression": "^1.7.4",
+    "concurrently": "^5.3.0",
+    "create-react-native-app": "^3.5.0",
+    "express": "^4.17.1",
+    "gravatar-url": "^3.1.0",
     "jwt-decode": "^2.2.0",
-    "morgan": "^1.9.0",
-    "normalizr": "^3.2.4",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-icons": "^2.2.7",
-    "react-native": "^0.54.2",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.3.0",
-    "semantic-ui-react": "^0.78.3",
-    "socket.io": "^2.0.4",
-    "utf-8-validate": "^4.0.0",
-    "uuid": "^3.2.1",
-    "validator": "^9.4.1"
+    "morgan": "^1.10.0",
+    "node-sass": "^4.14.1",
+    "normalizr": "^3.6.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-native": "^0.63.2",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.10",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^1.1.1",
+    "socket.io": "^2.3.0",
+    "utf-8-validate": "^5.0.2",
+    "uuid": "^8.3.0",
+    "validator": "^13.1.1"
   },
   "scripts": {
     "start": "concurrently --kill-others \"npm run r-start\" \"npm run nodemon\" \"npm run styles\"",
@@ -39,9 +41,22 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:8080/api",
   "devDependencies": {
-    "nodemon": "^1.17.2",
-    "redux-devtools-extension": "^2.13.2"
+    "nodemon": "^2.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "typescript": "^3.9.7"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -41,7 +41,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080/api",
+  "proxy": "https://react-node-api.herokuapp.com/api",
   "devDependencies": {
     "nodemon": "^2.0.4",
     "redux-devtools-extension": "^2.13.8",

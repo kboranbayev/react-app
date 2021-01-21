@@ -27,7 +27,7 @@
     "sass": "^1.26.10",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^1.1.1",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "utf-8-validate": "^5.0.2",
     "uuid": "^8.3.0",
     "validator": "^13.1.1"

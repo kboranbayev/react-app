@@ -8,7 +8,7 @@
     "compression": "^1.7.4",
     "concurrently": "^5.3.0",
     "create-react-native-app": "^3.5.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "gravatar-url": "^3.1.0",
     "jwt-decode": "^2.2.0",
     "morgan": "^1.10.0",
